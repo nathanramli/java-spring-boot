@@ -25,7 +25,7 @@ jobs:
 #      - name: Maven Clean Verify
 #        run: mvn clean verify
   build:
-    needs: run_test
+#    needs: run_test
     name: Build Package
     runs-on: ubuntu-latest
     steps:
