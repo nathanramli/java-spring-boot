@@ -67,7 +67,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "deploy.env"
-          target: "."
+          target: "env"
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
@@ -80,4 +80,4 @@ jobs:
             docker rm spring-boot-docker
             docker rmi nathanramli/spring-boot-docker:latest
             docker pull nathanramli/spring-boot-docker:latest
-            docker run -d --name spring-boot-docker --network postgres --env-file deploy.env -p 80:8080 nathanramli/spring-boot-docker:latest
+            docker run -d --name spring-boot-docker --network postgres --env-file env/deploy.env -p 80:8080 nathanramli/spring-boot-docker:latest
