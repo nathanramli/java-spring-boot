@@ -59,6 +59,7 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Upload environment file
         uses: appleboy/scp-action@master
         with:
@@ -67,7 +68,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "deploy.env"
-          target: "~/env"
+          target: "env"
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
