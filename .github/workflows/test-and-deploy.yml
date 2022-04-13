@@ -67,7 +67,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "deploy.env"
-          target: "env"
+          target: "~/env"
       - name: Deploy Using ssh
         uses: appleboy/ssh-action@master
         with:
